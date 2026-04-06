@@ -29,13 +29,6 @@ export interface Track {
   snapshots?: TrendSnapshot[];
 }
 
-export interface SchedulerStatus {
-  running: boolean;
-  next_run: string | null;
-  last_run: string | null;
-  job_count: number;
-}
-
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, init);
   if (!res.ok) throw new Error(`API error ${res.status}`);
@@ -48,22 +41,4 @@ export const api = {
 
   getTrack: (id: number) =>
     apiFetch<Track>(`/api/tracks/${id}`),
-
-  getArtist: (id: number) =>
-    apiFetch<Artist>(`/api/artists/${id}`),
-
-  getArtistTracks: (id: number) =>
-    apiFetch<Track[]>(`/api/artists/${id}/tracks`),
-
-  getSchedulerStatus: () =>
-    apiFetch<SchedulerStatus>("/api/scheduler/status"),
-
-  startScheduler: () =>
-    apiFetch<{ status: string }>("/api/scheduler/start", { method: "POST" }),
-
-  stopScheduler: () =>
-    apiFetch<{ status: string }>("/api/scheduler/stop", { method: "POST" }),
-
-  runNow: () =>
-    apiFetch<{ status: string }>("/api/scheduler/run-now", { method: "POST" }),
 };

@@ -28,7 +28,6 @@ export default function RootLayout({
           <nav className="flex gap-6 text-sm text-white/60">
             <Link href="/" className="hover:text-white transition-colors">Dashboard</Link>
             <Link href="/charts" className="hover:text-white transition-colors">Charts</Link>
-            <Link href="/admin/scheduler" className="hover:text-white transition-colors">Scheduler</Link>
           </nav>
         </header>
         <main className="flex-1 px-6 py-8 max-w-7xl mx-auto w-full">

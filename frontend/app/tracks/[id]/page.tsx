@@ -33,11 +33,7 @@ export default function TrackPage() {
         )}
         <div>
           <h1 className="text-3xl font-bold">{track.title}</h1>
-          {track.artist && (
-            <Link href={`/artists/${track.artist.id}`} className="text-white/50 hover:text-white transition-colors mt-1 inline-block">
-              {track.artist_name}
-            </Link>
-          )}
+          <p className="text-white/50 mt-1">{track.artist_name}</p>
         </div>
       </div>
 

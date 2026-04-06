@@ -65,15 +65,7 @@ export default function ChartsPage() {
                       {track.title}
                     </Link>
                   </td>
-                  <td className="px-4 py-3">
-                    {track.artist ? (
-                      <Link href={`/artists/${track.artist.id}`} className="text-white/60 hover:text-white transition-colors">
-                        {track.artist_name}
-                      </Link>
-                    ) : (
-                      <span className="text-white/40">{track.artist_name}</span>
-                    )}
-                  </td>
+                  <td className="px-4 py-3 text-white/50">{track.artist_name}</td>
                   <td className="px-4 py-3 text-right text-white/60">
                     {snap?.video_count ? `${(snap.video_count / 1_000_000).toFixed(1)}M` : "—"}
                   </td>
